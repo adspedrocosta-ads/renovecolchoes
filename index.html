@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renove Colchões – Meta Ads Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0e1a;color:#e2e8f0;font-family:Arial,sans-serif;padding:16px;min-height:100vh}
+.wrap{max-width:1280px;margin:0 auto}
+.top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:38px;height:38px;background:#1a1a0a;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#d4a843;border:1px solid #d4a84340}
+.brand-name{font-size:16px;font-weight:700;color:#fff}
+.brand-sub{font-size:10px;color:#475569}
+.period{background:#111827;border:1px solid #1e2a3a;border-radius:16px;padding:4px 14px;font-size:10px;color:#d4a843;font-weight:600}
+.main-grid{display:grid;grid-template-columns:160px 1fr 165px;gap:10px;margin-bottom:10px}
+.left-col{display:flex;flex-direction:column;gap:8px}
+.stat-box{background:#111827;border:1px solid #1e2a3a;border-radius:8px;padding:11px 13px}
+.stat-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.stat-val{font-size:20px;font-weight:700;line-height:1.1}
+.stat-sub{font-size:9px;margin-top:3px}
+.green{color:#2ecc71}.gold{color:#d4a843}.blue{color:#58a6ff}.red{color:#f87171}.teal{color:#2dd4bf}.purple{color:#a78bfa}
+.center-col{display:flex;flex-direction:column;gap:10px}
+.chart-card{background:#111827;border:1px solid #1e2a3a;border-radius:8px;padding:13px}
+.chart-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px}
+.legend-row{display:flex;gap:12px;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:4px;font-size:9px;color:#64748b}
+.leg-sq{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.right-col{display:flex;flex-direction:column;gap:8px}
+.donut-card{background:#111827;border:1px solid #1e2a3a;border-radius:8px;padding:13px;flex:1}
+.donut-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.donut-legend{margin-top:8px}
+.dl-item{display:flex;align-items:center;padding:3px 0;border-bottom:1px solid #0f1929;font-size:9px}
+.dl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-right:5px}
+.dl-name{color:#94a3b8;flex:1}
+.dl-val{color:#e2e8f0;font-weight:600}
+.tbl-card{background:#111827;border:1px solid #1e2a3a;border-radius:8px;padding:13px}
+.tbl-header{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:flex;justify-content:space-between}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:11px;min-width:700px}
+thead th{padding:6px 8px;color:#475569;font-size:9px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid #1e2a3a;text-align:left;white-space:nowrap}
+tbody tr{border-bottom:1px solid #0d1424}
+tbody tr:hover{background:#0d1424}
+tbody td{padding:8px 8px;color:#cbd5e1;vertical-align:middle;white-space:nowrap}
+.num{text-align:right}
+.badge-sm{display:inline-block;padding:2px 7px;border-radius:3px;font-size:9px;font-weight:600}
+.bar-wrap{display:flex;align-items:center;gap:6px}
+.bar-bg{background:#1e2a3a;border-radius:2px;height:5px;flex:1;min-width:60px}
+.bar-fill{height:5px;border-radius:2px}
+.footer{margin-top:14px;text-align:center;font-size:10px;color:#334155;padding-bottom:8px}
+@media(max-width:900px){.main-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-bar">
+    <div class="brand">
+      <div class="logo">RC</div>
+      <div>
+        <div class="brand-name">Renove Colchoes</div>
+        <div class="brand-sub">Performance por Consultor · Meta Ads</div>
+      </div>
+    </div>
+    <div class="period">10/04/2025 — 16/04/2025</div>
+  </div>
+
+  <div class="main-grid">
+    <div class="left-col">
+      <div class="stat-box">
+        <div class="stat-label">Investimento</div>
+        <div class="stat-val gold">R$ 1.340</div>
+        <div class="stat-sub" style="color:#475569">11 consultores</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Total de leads</div>
+        <div class="stat-val green">122</div>
+        <div class="stat-sub green">novos contatos</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Custo / lead</div>
+        <div class="stat-val gold">R$ 10,99</div>
+        <div class="stat-sub" style="color:#475569">melhor: R$ 6,00</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Cliques</div>
+        <div class="stat-val blue">298</div>
+        <div class="stat-sub" style="color:#475569">no link</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Alcance total</div>
+        <div class="stat-val teal">38.719</div>
+        <div class="stat-sub" style="color:#475569">pessoas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Seguidores</div>
+        <div class="stat-val purple">33</div>
+        <div class="stat-sub" style="color:#475569">novos no Instagram</div>
+      </div>
+    </div>
+
+    <div class="center-col">
+      <div class="chart-card" style="flex:1">
+        <div class="chart-label">
+          <span>Leads e investimento por consultor</span>
+          <div class="legend-row">
+            <span class="leg-item"><span class="leg-sq" style="background:#2ecc71"></span>Leads</span>
+            <span class="leg-item"><span class="leg-sq" style="background:#d4a843"></span>Investimento</span>
+          </div>
+        </div>
+        <div style="position:relative;height:200px">
+          <canvas id="chartMain" role="img" aria-label="Leads e investimento por consultor"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-label"><span>Custo por lead por consultor (R$)</span></div>
+        <div style="position:relative;height:115px">
+          <canvas id="chartCusto" role="img" aria-label="Custo por lead por consultor"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="donut-card">
+        <div class="donut-label">Leads por loja</div>
+        <div style="position:relative;height:145px">
+          <canvas id="chartDonut" role="img" aria-label="Leads por loja"></canvas>
+        </div>
+        <div class="donut-legend" id="donut-legend"></div>
+      </div>
+      <div class="stat-box" style="background:#0d2b1e;border-color:#2ecc7130">
+        <div class="stat-label" style="color:#2ecc71">Top consultor</div>
+        <div class="stat-val green" style="font-size:16px">Gilmara</div>
+        <div class="stat-sub green">21 leads · R$ 6,00/lead</div>
+      </div>
+      <div class="stat-box" style="background:#2b0e0e;border-color:#f8717130">
+        <div class="stat-label" style="color:#f87171">Atencao</div>
+        <div class="stat-val red" style="font-size:16px">Thiago</div>
+        <div class="stat-sub red">2 leads · R$ 31,92/lead</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tbl-card">
+    <div class="tbl-header">
+      <span>Consultores · desempenho detalhado</span>
+      <span style="color:#a78bfa">* = campanhas unificadas</span>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28px">#</th>
+            <th>Consultor</th>
+            <th>Loja</th>
+            <th class="num">Investido</th>
+            <th class="num">Leads</th>
+            <th class="num">Custo/Lead</th>
+            <th style="width:140px">Volume</th>
+            <th class="num">Alcance</th>
+            <th class="num">Seguidores</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer">Renove Colchoes · Meta Ads · 10/04/2025 - 16/04/2025</div>
+</div>
+
+<script>
+var lojaColors={Goiabeiras:"#d4a843",Gloria:"#2ecc71","Laranjeiras 1":"#58a6ff","Laranjeiras 2":"#f87171","Laranjeiras 3":"#2dd4bf"};
+var lojaBg={Goiabeiras:"#2b1d0a",Gloria:"#0d2b1e","Laranjeiras 1":"#0d1e2e","Laranjeiras 2":"#2b0e0e","Laranjeiras 3":"#062220"};
+var lojaLabel={Goiabeiras:"Goiabeiras",Gloria:"Gloria","Laranjeiras 1":"Lar. 1","Laranjeiras 2":"Lar. 2","Laranjeiras 3":"Lar. 3"};
+var data=[
+  {name:"Gilmara",  loja:"Goiabeiras",    invest:126.06,leads:21,alcance:3399,seg:0,merged:false},
+  {name:"Laryssa",  loja:"Laranjeiras 3", invest:192.04,leads:16,alcance:5343,seg:5,merged:false},
+  {name:"Iracilda", loja:"Gloria",        invest:123.18,leads:15,alcance:3271,seg:3,merged:false},
+  {name:"Thais",    loja:"Gloria",        invest:126.93,leads:13,alcance:3640,seg:7,merged:false},
+  {name:"Nikolly",  loja:"Laranjeiras 1", invest:195.68,leads:13,alcance:6892,seg:3,merged:false},
+  {name:"Guilherme",loja:"Goiabeiras",    invest:124.47,leads:13,alcance:3187,seg:4,merged:false},
+  {name:"Bruno",    loja:"Laranjeiras 3", invest:196.57,leads:10,alcance:5291,seg:5,merged:false},
+  {name:"Vanusia",  loja:"Laranjeiras 2", invest:67.36, leads:9, alcance:1390,seg:4,merged:false},
+  {name:"Bianca",   loja:"Laranjeiras 2", invest:64.48, leads:5, alcance:1930,seg:1,merged:true},
+  {name:"Day",      loja:"Goiabeiras",    invest:59.71, leads:5, alcance:1948,seg:1,merged:false},
+  {name:"Thiago",   loja:"Laranjeiras 2", invest:63.84, leads:2, alcance:2428,seg:0,merged:true},
+];
+var maxLeads=Math.max.apply(null,data.map(function(d){return d.leads;}));
+var gc="#1e2a3a",tc="#475569";
+var tbody=document.getElementById("tbody");
+data.forEach(function(c,i){
+  var custo=c.invest/c.leads;
+  var col=lojaColors[c.loja]||"#94a3b8";
+  var bg=lojaBg[c.loja]||"#111827";
+  var lbl=lojaLabel[c.loja]||c.loja;
+  var isBest=custo<9,isBad=custo>20;
+  var pct=Math.round((c.leads/maxLeads)*100);
+  var tr=document.createElement("tr");
+  tr.innerHTML='<td style="color:#475569;font-size:10px">'+(i+1)+'</td>'
+    +'<td><span style="font-weight:600;color:#e2e8f0">'+c.name+'</span>'+(c.merged?'<span style="background:#1e1b4b;color:#a78bfa;border:1px solid #a78bfa40;border-radius:3px;font-size:8px;padding:1px 4px;margin-left:4px">*</span>':'')+'</td>'
+    +'<td><span class="badge-sm" style="background:'+bg+';color:'+col+';border:1px solid '+col+'40">'+lbl+'</span></td>'
+    +'<td class="num" style="color:'+(c.invest>150?'#d4a843':'#cbd5e1')+';font-weight:'+(c.invest>150?700:400)+'">R$ '+c.invest.toFixed(2).replace(".",",")+'</td>'
+    +'<td class="num" style="color:'+(c.leads>=15?'#2ecc71':'#cbd5e1')+';font-weight:'+(c.leads>=15?700:400)+'">'+c.leads+'</td>'
+    +'<td class="num" style="color:'+(isBest?'#2ecc71':isBad?'#f87171':'#cbd5e1')+';font-weight:'+(isBest||isBad?700:400)+'">R$ '+custo.toFixed(2).replace(".",",")+'</td>'
+    +'<td><div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:'+pct+'%;background:'+col+'"></div></div><span style="font-size:9px;color:#475569;min-width:20px">'+c.leads+'</span></div></td>'
+    +'<td class="num">'+c.alcance.toLocaleString("pt-BR")+'</td>'
+    +'<td class="num" style="color:'+(c.seg>4?'#2ecc71':'#cbd5e1')+'">'+(c.seg||"—")+'</td>';
+  tbody.appendChild(tr);
+});
+new Chart(document.getElementById("chartMain"),{type:"bar",data:{labels:data.map(function(d){return d.name;}),datasets:[{label:"Leads",data:data.map(function(d){return d.leads;}),backgroundColor:"#2ecc7199",borderColor:"#2ecc71",borderWidth:1.5,borderRadius:3,yAxisID:"y"},{label:"Investimento",data:data.map(function(d){return d.invest;}),backgroundColor:"#d4a84355",borderColor:"#d4a843",borderWidth:2,type:"line",tension:0.4,pointRadius:3,pointBackgroundColor:"#d4a843",yAxisID:"y1"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:"index",intersect:false}},scales:{x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},y:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},y1:{position:"right",ticks:{color:tc,font:{size:9},callback:function(v){return"R$"+v;}},grid:{drawOnChartArea:false}}}}});
+new Chart(document.getElementById("chartCusto"),{type:"bar",data:{labels:data.map(function(d){return d.name;}),datasets:[{data:data.map(function(d){return parseFloat((d.invest/d.leads).toFixed(2));}),backgroundColor:data.map(function(d){var v=d.invest/d.leads;return v<9?"#2ecc7199":v>20?"#f8717199":"#d4a84399";}),borderColor:data.map(function(d){var v=d.invest/d.leads;return v<9?"#2ecc71":v>20?"#f87171":"#d4a843";}),borderWidth:1.5,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return"R$ "+ctx.parsed.y.toFixed(2).replace(".",",");}}}},scales:{x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},y:{ticks:{color:tc,font:{size:9},callback:function(v){return"R$"+v;}},grid:{color:gc}}}}});
+var lojas=["Goiabeiras","Gloria","Laranjeiras 1","Laranjeiras 2","Laranjeiras 3"];
+var lojaLeads=lojas.map(function(l){return data.filter(function(d){return d.loja===l;}).reduce(function(a,b){return a+b.leads;},0);});
+var lojaColorsArr=lojas.map(function(l){return lojaColors[l];});
+var lojaLabels=["Goiabeiras","Gloria","Lar. 1","Lar. 2","Lar. 3"];
+var totalLeads=lojaLeads.reduce(function(a,b){return a+b;},0);
+new Chart(document.getElementById("chartDonut"),{type:"doughnut",data:{labels:lojaLabels,datasets:[{data:lojaLeads,backgroundColor:lojaColorsArr.map(function(c){return c+"cc";}),borderColor:lojaColorsArr,borderWidth:1.5}]},options:{responsive:true,maintainAspectRatio:false,cutout:"65%",plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return ctx.label+": "+ctx.parsed+" leads";}}}}}});
+var legend=document.getElementById("donut-legend");
+lojaLabels.forEach(function(lbl,i){
+  var pct=Math.round(lojaLeads[i]/totalLeads*100);
+  var div=document.createElement("div");
+  div.className="dl-item";
+  div.innerHTML='<span class="dl-dot" style="background:'+lojaColorsArr[i]+'"></span><span class="dl-name">'+lbl+'</span><span class="dl-val">'+lojaLeads[i]+' <span style="color:#475569">('+pct+'%)</span></span>';
+  legend.appendChild(div);
+});
+</script>
+</body>
+</html>
