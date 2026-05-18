@@ -1,0 +1,226 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.dash{background:#080808;color:#e2e8f0;font-family:var(--font-sans,sans-serif);padding:16px;border-radius:12px}
+.top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo-ring{width:48px;height:48px;border-radius:50%;padding:2px;background:linear-gradient(135deg,#cc0000,#e07b1a,#c8972a,#fff,#c8972a);flex-shrink:0}
+.logo-inner{width:100%;height:100%;border-radius:50%;background:#111;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#c8972a;line-height:1.1;text-align:center}
+.brand-name{font-size:17px;font-weight:700;color:#c8972a;letter-spacing:.5px}
+.brand-sub{font-size:10px;color:#555;margin-top:2px}
+.period{background:#111;border:1px solid #c8972a40;border-radius:16px;padding:4px 14px;font-size:10px;color:#c8972a;font-weight:600}
+.gold-divider{height:1px;background:linear-gradient(90deg,transparent,#cc0000,#c8972a,#fff,#c8972a,#cc0000,transparent);margin-bottom:14px;opacity:.5}
+
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.kpi{background:#111;border:1px solid #c8972a20;border-radius:10px;padding:13px 15px;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#c8972a,#e07b1a)}
+.kpi.acc::before{background:linear-gradient(90deg,#cc0000,#c8972a,#fff)}
+.kpi-label{font-size:9px;color:#555;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.kpi-val{font-size:22px;font-weight:700;line-height:1}
+.kpi-sub{font-size:10px;margin-top:4px}
+.gold{color:#c8972a}.wht{color:#fff}.grn{color:#2ecc71}.muted{color:#555}.red{color:#cc0000}.blue{color:#58a6ff}
+
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.chart-card{background:#111;border:1px solid #c8972a20;border-radius:10px;padding:14px;position:relative;overflow:hidden}
+.chart-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#cc0000,#c8972a,#fff,#c8972a,#cc0000)}
+.chart-title{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px}
+.legend-custo{display:flex;gap:8px;flex-wrap:wrap}
+.lc-item{display:flex;align-items:center;gap:4px;font-size:9px}
+.lc-dot{width:7px;height:7px;border-radius:50%}
+
+.tbl-card{background:#111;border:1px solid #c8972a20;border-radius:10px;padding:14px;position:relative;overflow:hidden}
+.tbl-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#cc0000,#c8972a,#fff,#c8972a,#cc0000)}
+.tbl-hdr{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:11px;min-width:600px}
+thead th{padding:6px 8px;color:#444;font-size:9px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid #1e1e1e;text-align:left;white-space:nowrap}
+tbody tr{border-bottom:1px solid #131313}
+tbody tr:hover{background:#131313}
+tbody td{padding:9px 8px;color:#cbd5e1;vertical-align:middle;white-space:nowrap}
+.num{text-align:right}
+.bdg{display:inline-block;padding:2px 7px;border-radius:3px;font-size:9px;font-weight:600}
+.cpill{padding:2px 8px;border-radius:4px;font-weight:700;font-size:10px}
+.bar-wrap{display:flex;align-items:center;gap:6px}
+.bar-bg{background:#1e1e1e;border-radius:2px;height:5px;flex:1;min-width:50px}
+.bar-fill{height:5px;border-radius:2px}
+.novo{display:inline-block;background:#1a0000;color:#cc0000;border:1px solid #cc000040;border-radius:3px;font-size:8px;padding:1px 4px;margin-left:4px}
+</style>
+
+<div class="dash">
+  <div class="top-bar">
+    <div class="brand">
+      <div class="logo-ring">
+        <div class="logo-inner">Re<br>nove</div>
+      </div>
+      <div>
+        <div class="brand-name">RENOVE COLCHÕES</div>
+        <div class="brand-sub">Multimarcas · Performance por Consultor · Meta Ads</div>
+      </div>
+    </div>
+    <div class="period">15/05/2026 — 18/05/2026</div>
+  </div>
+
+  <div class="gold-divider"></div>
+
+  <div class="kpi-row">
+    <div class="kpi acc">
+      <div class="kpi-label">Investimento total</div>
+      <div class="kpi-val gold">R$ 419,07</div>
+      <div class="kpi-sub muted">11 consultores ativos</div>
+    </div>
+    <div class="kpi acc">
+      <div class="kpi-label">Total de leads</div>
+      <div class="kpi-val wht">91</div>
+      <div class="kpi-sub grn">novos contatos</div>
+    </div>
+    <div class="kpi acc">
+      <div class="kpi-label">Custo médio / lead</div>
+      <div class="kpi-val grn">R$ 4,60</div>
+      <div class="kpi-sub muted">melhor: R$ 2,01 (Guilherme)</div>
+    </div>
+    <div class="kpi acc">
+      <div class="kpi-label">Novos consultores</div>
+      <div class="kpi-val red">3</div>
+      <div class="kpi-sub muted">Lucas · Carlos · Eduarda</div>
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-label">Glória</div>
+      <div class="kpi-val gold">14 leads</div>
+      <div class="kpi-sub muted">Thais · Iracilda</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Laranjeiras 1</div>
+      <div class="kpi-val wht">41 leads</div>
+      <div class="kpi-sub muted">Guilherme · Lucas · Nikolly · Nana</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Laranjeiras 2 e 3</div>
+      <div class="kpi-val gold">28 leads</div>
+      <div class="kpi-sub muted">Thiago · Bianca · Vanusia · Carlos</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Grande Vitória</div>
+      <div class="kpi-val red">8 leads</div>
+      <div class="kpi-sub muted">Eduarda</div>
+    </div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title"><span>Leads por consultor</span></div>
+      <div style="position:relative;height:220px">
+        <canvas id="chartLeads" role="img" aria-label="Leads por consultor"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">
+        <span>Custo por lead (R$)</span>
+        <div class="legend-custo">
+          <span class="lc-item"><span class="lc-dot" style="background:#2ecc71"></span><span style="color:#2ecc71">Abaixo R$ 7</span></span>
+          <span class="lc-item"><span class="lc-dot" style="background:#f59e0b"></span><span style="color:#f59e0b">Acima R$ 8</span></span>
+        </div>
+      </div>
+      <div style="position:relative;height:220px">
+        <canvas id="chartCusto" role="img" aria-label="Custo por lead"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="tbl-card">
+    <div class="tbl-hdr">
+      <span>Consultores · desempenho detalhado</span>
+      <div class="legend-custo">
+        <span class="lc-item"><span class="lc-dot" style="background:#2ecc71"></span><span style="color:#2ecc71">Abaixo R$ 7</span></span>
+        <span class="lc-item"><span class="lc-dot" style="background:#f59e0b"></span><span style="color:#f59e0b">Acima R$ 8</span></span>
+        <span class="lc-item"><span class="lc-dot" style="background:#cc0000"></span><span style="color:#cc0000">novo consultor</span></span>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28px">#</th>
+            <th>Consultor</th>
+            <th>Loja</th>
+            <th class="num">Investido</th>
+            <th class="num">Leads</th>
+            <th class="num">Custo / Lead</th>
+            <th style="width:130px">Volume</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+var LC={"Gloria":"#c8972a","Laranjeiras 1":"#ffffff","Laranjeiras 2":"#f59e0b","Laranjeiras 3":"#cc0000","Grande Vitoria":"#e07b1a"};
+var LB={"Gloria":"#1a1000","Laranjeiras 1":"#1e1e1e","Laranjeiras 2":"#1a1000","Laranjeiras 3":"#1a0000","Grande Vitoria":"#1a0800"};
+var LL={"Gloria":"Gloria","Laranjeiras 1":"Lar. 1","Laranjeiras 2":"Lar. 2","Laranjeiras 3":"Lar. 3","Grande Vitoria":"Gde. Vitoria"};
+
+var data=[
+  {name:"Guilherme",loja:"Laranjeiras 1", leads:21,custo:2.01,novo:false},
+  {name:"Lucas",    loja:"Laranjeiras 1", leads:10,custo:4.06,novo:true},
+  {name:"Carlos",   loja:"Laranjeiras 3", leads:10,custo:4.37,novo:true},
+  {name:"Thiago",   loja:"Laranjeiras 2", leads:10,custo:3.72,novo:false},
+  {name:"Iracilda", loja:"Gloria",        leads:9, custo:4.24,novo:false},
+  {name:"Eduarda",  loja:"Grande Vitoria",leads:8, custo:5.06,novo:true},
+  {name:"Nikolly",  loja:"Laranjeiras 1", leads:6, custo:7.28,novo:false},
+  {name:"Thais",    loja:"Gloria",        leads:5, custo:8.04,novo:false},
+  {name:"Vanusia",  loja:"Laranjeiras 2", leads:5, custo:8.37,novo:false},
+  {name:"Nana",     loja:"Laranjeiras 1", leads:4, custo:7.94,novo:false},
+  {name:"Bianca",   loja:"Laranjeiras 2", leads:3, custo:6.41,novo:false},
+];
+data.forEach(function(d){d.invest=parseFloat((d.leads*d.custo).toFixed(2));});
+
+function cc(v){return v<7?"#2ecc71":v>8?"#f59e0b":"#e2e8f0";}
+function cbg(v){return v<7?"#0d2b1e":v>8?"#2b1a00":"#1e1e1e";}
+function cb(v){return v<7?"#2ecc7140":v>8?"#f59e0b40":"#33333360";}
+
+var maxL=Math.max.apply(null,data.map(function(d){return d.leads;}));
+var gc="#1a1a1a",tc="#555";
+var tb=document.getElementById("tbody");
+
+data.forEach(function(c,i){
+  var col=LC[c.loja]||"#888",bg=LB[c.loja]||"#111",lb=LL[c.loja]||c.loja;
+  var pct=Math.round(c.leads/maxL*100);
+  var tr=document.createElement("tr");
+  tr.innerHTML="<td style='color:#444;font-size:10px'>"+(i+1)+"</td>"
+    +"<td><span style='font-weight:600;color:#e2e8f0'>"+c.name+"</span>"+(c.novo?"<span class='novo'>novo</span>":"")+"</td>"
+    +"<td><span class='bdg' style='background:"+bg+";color:"+col+";border:1px solid "+col+"40'>"+lb+"</span></td>"
+    +"<td class='num' style='color:#888'>R$ "+c.invest.toFixed(2).replace(".",",")+"</td>"
+    +"<td class='num' style='color:"+(c.leads>=10?"#c8972a":"#cbd5e1")+";font-weight:"+(c.leads>=10?700:400)+"'>"+c.leads+"</td>"
+    +"<td class='num'><span class='cpill' style='background:"+cbg(c.custo)+";color:"+cc(c.custo)+";border:1px solid "+cb(c.custo)+"'>R$ "+c.custo.toFixed(2).replace(".",",")+"</span></td>"
+    +"<td><div class='bar-wrap'><div class='bar-bg'><div class='bar-fill' style='width:"+pct+"%;background:"+col+"'></div></div><span style='font-size:9px;color:#444;min-width:18px'>"+c.leads+"</span></div></td>";
+  tb.appendChild(tr);
+});
+
+new Chart(document.getElementById("chartLeads"),{type:"bar",
+  data:{labels:data.map(function(d){return d.name;}),datasets:[{
+    data:data.map(function(d){return d.leads;}),
+    backgroundColor:data.map(function(d){return(LC[d.loja]||"#888")+"99";}),
+    borderColor:data.map(function(d){return LC[d.loja]||"#888";}),
+    borderWidth:1.5,borderRadius:3
+  }]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return ctx.parsed.y+" leads";}}}},
+    scales:{x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},y:{ticks:{color:tc,font:{size:9}},grid:{color:gc}}}}
+});
+
+new Chart(document.getElementById("chartCusto"),{type:"bar",
+  data:{labels:data.map(function(d){return d.name;}),datasets:[{
+    data:data.map(function(d){return d.custo;}),
+    backgroundColor:data.map(function(d){return cc(d.custo)+"99";}),
+    borderColor:data.map(function(d){return cc(d.custo);}),
+    borderWidth:1.5,borderRadius:3
+  }]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return"R$ "+ctx.parsed.y.toFixed(2).replace(".",",");}}}},
+    scales:{x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},y:{ticks:{color:tc,font:{size:9},callback:function(v){return"R$"+v;}},grid:{color:gc}}}}
+});
+</script>
